@@ -9,6 +9,14 @@
 
 ---
 
+## Clone
+
+When cloning the repository, include its submodules:
+
+```bash
+git clone --recurse-submodules "https://github.com/baudoin-csp/tactile-laplacian-jepa.git"
+```
+
 ## Overview
 
 This project asks whether **explicitly separating coarse spatial structure from local detail** improves self-supervised tactile representations.
