@@ -90,22 +90,22 @@ The model predicts masked target representations from visible context, following
 
 Depending on compute, one of three training regimes is used:
 
-| Regime | Trained | Frozen |
-|---|---|---|
-| Lightweight | Laplacian modules | Pretrained backbone |
-| Partial | Laplacian modules + selected backbone layers | Remaining layers |
-| Full | Complete backbone | — |
+| Regime      | Trained                                      | Frozen              |
+| ----------- | -------------------------------------------- | ------------------- |
+| Lightweight | Laplacian modules                            | Pretrained backbone |
+| Partial     | Laplacian modules + selected backbone layers | Remaining layers    |
+| Full        | Complete backbone                            | —                   |
 
 The baseline and the Laplacian model share the same training data, augmentations, optimization budget, and comparable capacity.
 
 ## Datasets
 
-| Stage | Data |
-|---|---|
-| Pretraining | Existing tactile datasets used by Sparsh |
-| Downstream evaluation | TacBench force estimation and slip detection (DIGIT and GelSight) |
-| Temporal experiments | Existing tactile sequences with frame ordering and sequence boundaries |
-| World model (later) | Synchronized tactile observations, robot states, and actions, collected in the lab |
+| Stage                 | Data                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| Pretraining           | Existing tactile datasets used by Sparsh                                           |
+| Downstream evaluation | TacBench force estimation and slip detection (DIGIT and GelSight)                  |
+| Temporal experiments  | Existing tactile sequences with frame ordering and sequence boundaries             |
+| World model (later)   | Synchronized tactile observations, robot states, and actions, collected in the lab |
 
 ## Evaluation protocol
 
@@ -120,14 +120,14 @@ The baseline and the Laplacian model share the same training data, augmentations
 
 ## Ablations
 
-| Question | Variants |
-|---|---|
-| Does Laplacian processing help? | Standard Sparsh features vs. Laplacian processing |
-| Which component matters? | Coarse only · Detail only · Coarse + Detail |
-| Does time matter? | Spatial-only vs. spatiotemporal processing |
-| Which scale? | Different smoothing scales $`\tau`$ |
-| Is it the Laplacian or just extra spatial mixing? | Laplacian vs. matched convolutional or Grid-GNN processing |
-| Graph vs. image pyramid? | Graph Laplacian vs. image Laplacian pyramid (where feasible) |
+| Question                                          | Variants                                                     |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| Does Laplacian processing help?                   | Standard Sparsh features vs. Laplacian processing            |
+| Which component matters?                          | Coarse only · Detail only · Coarse + Detail                  |
+| Does time matter?                                 | Spatial-only vs. spatiotemporal processing                   |
+| Which scale?                                      | Different smoothing scales $`\tau`$                          |
+| Is it the Laplacian or just extra spatial mixing? | Laplacian vs. matched convolutional or Grid-GNN processing   |
+| Graph vs. image pyramid?                          | Graph Laplacian vs. image Laplacian pyramid (where feasible) |
 
 The analysis separates gains due to the spatial decomposition from gains due to additional parameters or training.
 
